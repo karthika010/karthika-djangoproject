@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+</head>
+
+<body>
+    <h2>Student Registration Form</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="rollno">Roll No:</label>
+        <input type="text" id="rollno" name="rollno" required><br><br>
+
+        <label>Course:</label><br>
+        <input type="radio" id="bsc" name="course" value="BSc">
+        <label for="bsc">BSc</label>
+
+        <input type="radio" id="msc" name="course" value="MSc">
+        <label for="msc">MSc</label>
+
+        <input type="radio" id="bed" name="course" value="B.Ed">
+        <label for="bed">B.Ed</label>
+
+        <input type="radio" id="be" name="course" value="BE">
+        <label for="be">BE</label>
+
+        <input type="radio" id="me" name="course" value="ME">
+        <label for="me">ME</label>
+
+        <input type="radio" id="bba" name="course" value="BBA">
+        <label for="bba">BBA</label>
+
+        <input type="radio" id="bcom" name="course" value="B.Com">
+        <label for="bcom">B.Com</label>
+        <br><br>
+
+        <label>Department:</label><br>
+        <input type="radio" id="tamil" name="department" value="Tamil">
+        <label for="tamil">Tamil</label>
+
+        <input type="radio" id="english" name="department" value="English">
+        <label for="english">English</label>
+
+        <input type="radio" id="maths" name="department" value="Maths">
+        <label for="maths">Maths</label>
+
+        <input type="radio" id="physics" name="department" value="Physics">
+        <label for="physics">Physics</label>
+
+        <input type="radio" id="cs" name="department" value="Computer Science">
+        <label for="cs">Computer Science</label>
+
+        <input type="radio" id="commerce" name="department" value="Commerce">
+        <label for="commerce">Commerce</label>
+
+        <input type="radio" id="chemistry" name="department" value="Chemistry">
+        <label for="chemistry">Chemistry</label>
+
+        <input type="radio" id="management" name="department" value="Management">
+        <label for="management">Management</label>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Registered Students</h2>
+    <ul>
+        {% for student in students %}
+        <li>{{ student.name }} - {{ student.rollno }} - {{ student.course }} - {{ student.department }} - {{
+            student.email }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

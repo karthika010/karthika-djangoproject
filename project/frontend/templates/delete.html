@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Delete student: {{ student.name }}</h1>
+    <h2>Delete student: {{ student.rollno }}</h2>
+    <h4>Delete student: {{ student.course }}</h4>
+    <h5>Delete student: {{ student.department}}</h5>
+    <h6>Delete student: {{ student.address }}</h6>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+
+
+</body>
+
+</html>

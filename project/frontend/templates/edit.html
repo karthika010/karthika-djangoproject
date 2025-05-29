@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- templates/student/update.html -->
+    <h2>Edit Biodata</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="name" value="{{ student.name }}"><br>
+        <input type="number" name="rollno" placeholder="rollno" value="{{ student.rollno }}"><br>
+        <input type="text" name="course" placeholder="course" value="{{ student.course }}"><br>
+        <input type="char" name="department" placeholder="department" value="{{ student.department }} "><br>
+
+        <input type="char" name="email" placeholder="email" value="{{ student.email }}"><br>
+        
+
+        <button type="submit">Update</button>
+    </form>
+
+</body>
+
+</html>
