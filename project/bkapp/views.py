@@ -2,7 +2,11 @@ from django.shortcuts import render,redirect
 from .models import *
 # Create your views here.
 def homepage(request):
-    return render(request, 'index.html')  
+    return render(request, 'hom.html')  
+    return redirect('signup')
+    return render(request, 'signup.html')
+
+
 
 
 
@@ -13,7 +17,7 @@ def book_form(request):
       author=request.POST.get('author')
       isbn=request.POST.get('isbn')
       available=request.POST.get('available')
-      book.objects.create(title=title,author=author,isnb=isnb,available=available)
+      book.objects.create(title=title,author=author,isbn=isbn,available=available)
       return redirect('book_form')
     books=book.objects.all()
     return render(request,'index.html',{'books':books})
@@ -29,7 +33,7 @@ def student_form(request):
        department=request.POST.get('department')
        email=request.POST.get('email')
        student.objects.create(name=name,rollno=rollno,course=course,department=department,email=email)
-       return redirect('student_form')
+       return redirect('book_form')
     students=student.objects.all()
     return render(request,'user.html',{'students':students})
 
